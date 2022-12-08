@@ -27,3 +27,6 @@ console.log(document.title);
 var li=document.getElementsByTagName('li');
 console.log(li);
 li[1].textContent='hello 2';
+for(var i=0; i<li.length;i++){
+   li[i].style.backgroundColor = '#f4f4f4';
+}
