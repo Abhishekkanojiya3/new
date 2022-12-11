@@ -26,6 +26,29 @@
         </div>
         <input class="btn" type="submit" value="Submit">
       </form>
-      <script src = "local_storage.js"></script>
+      <ul id="listOfUsers"></ul>
+      <script>
+        function saveToLocalStorage(event){
+    event.preventDefault();
+    const name = document.getElementById('name').value;
+    const email =document.getElementById('email').value;
+
+    // localStorage.setItem('name',name);
+    // localStorage.setItem('email',email);
+
+    const obj = {
+        name,
+        email
+    }
+    localStorage.setItem(obj.email,JSON.stringify(obj));
+    showNewUserOnScreen(obj);
+}
+     function showNewUserOnScreen(user){
+      const parentNode = document.getElementById('listOfUsers');
+      const childHtml = `<li> ${user.name} - ${user.email} </li>`
+
+      parentNode.innerHTML = parentNode.innerHTML + childHtml;
+     }
+      </script>
   </body>
 </html>
